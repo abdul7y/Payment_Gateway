@@ -63,8 +63,8 @@ const PaymentForm = ({ onSubmitSuccess }: PaymentFormProps) => {
   };
 
   return (
-    <Card className="shadow-lg">
-      <CardContent className="pt-6">
+    <Card className="shadow-md border-0 rounded-md overflow-hidden">
+      <CardContent className="pt-6 px-6 bg-white">
         <h2 className="text-2xl font-bold text-center mb-6">
           Hi there, please fill the details below to proceed
         </h2>
@@ -76,9 +76,12 @@ const PaymentForm = ({ onSubmitSuccess }: PaymentFormProps) => {
               name="firstName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>First Name</FormLabel>
+                  <FormLabel className="font-medium">First Name</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input 
+                      {...field} 
+                      className="rounded-md border border-gray-300 focus:border-blue-500"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -90,9 +93,12 @@ const PaymentForm = ({ onSubmitSuccess }: PaymentFormProps) => {
               name="lastName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Last Name</FormLabel>
+                  <FormLabel className="font-medium">Last Name</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input 
+                      {...field} 
+                      className="rounded-md border border-gray-300 focus:border-blue-500"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -104,7 +110,7 @@ const PaymentForm = ({ onSubmitSuccess }: PaymentFormProps) => {
               name="cardNumber"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex justify-between items-center">
+                  <FormLabel className="flex justify-between items-center font-medium">
                     <span>Card Number</span>
                     <CardLogos />
                   </FormLabel>
@@ -112,6 +118,7 @@ const PaymentForm = ({ onSubmitSuccess }: PaymentFormProps) => {
                     <Input 
                       {...field} 
                       maxLength={19}
+                      className="rounded-md border border-gray-300 focus:border-blue-500"
                       onChange={(e) => {
                         const value = e.target.value.replace(/\D/g, '');
                         field.onChange(value);
@@ -128,12 +135,13 @@ const PaymentForm = ({ onSubmitSuccess }: PaymentFormProps) => {
               name="expiry"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Expiry</FormLabel>
+                  <FormLabel className="font-medium">Expiry</FormLabel>
                   <FormControl>
                     <Input 
                       {...field} 
                       placeholder="MM/YY"
                       maxLength={5}
+                      className="rounded-md border border-gray-300 focus:border-blue-500"
                       onChange={(e) => {
                         handleExpiryChange(e);
                       }}
@@ -149,12 +157,13 @@ const PaymentForm = ({ onSubmitSuccess }: PaymentFormProps) => {
               name="cvv"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>CVV</FormLabel>
+                  <FormLabel className="font-medium">CVV</FormLabel>
                   <FormControl>
                     <Input 
                       {...field} 
                       type="password" 
                       maxLength={4}
+                      className="rounded-md border border-gray-300 focus:border-blue-500"
                       onChange={(e) => {
                         const value = e.target.value.replace(/\D/g, '');
                         field.onChange(value);
@@ -171,9 +180,12 @@ const PaymentForm = ({ onSubmitSuccess }: PaymentFormProps) => {
               name="nameOnCard"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name on Card</FormLabel>
+                  <FormLabel className="font-medium">Name on Card</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input 
+                      {...field}
+                      className="rounded-md border border-gray-300 focus:border-blue-500"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -185,9 +197,12 @@ const PaymentForm = ({ onSubmitSuccess }: PaymentFormProps) => {
               name="address"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Address</FormLabel>
+                  <FormLabel className="font-medium">Address</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input 
+                      {...field}
+                      className="rounded-md border border-gray-300 focus:border-blue-500"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -196,7 +211,7 @@ const PaymentForm = ({ onSubmitSuccess }: PaymentFormProps) => {
             
             <Button 
               type="submit" 
-              className="w-full bg-blue-600 hover:bg-blue-700 mt-4" 
+              className="w-full bg-blue-500 hover:bg-blue-600 mt-4 py-6 rounded-md text-base font-medium" 
               disabled={isSubmitting}
             >
               {isSubmitting ? "Processing..." : "Continue"}

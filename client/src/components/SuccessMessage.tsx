@@ -3,8 +3,8 @@ import { CheckCircle } from "lucide-react";
 
 const SuccessMessage = () => {
   return (
-    <Card className="shadow-lg">
-      <CardContent className="pt-6 pb-6 text-center">
+    <Card className="shadow-md border-0 rounded-md overflow-hidden">
+      <CardContent className="pt-8 pb-8 text-center bg-white">
         <div className="flex justify-center mb-4">
           <CheckCircle className="h-16 w-16 text-green-500" />
         </div>
