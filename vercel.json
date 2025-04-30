@@ -1,24 +1,15 @@
 {
-    "version": 2,
-    "builds": [{
-            "src": "server/index.ts",
-            "use": "@vercel/node"
+    "rewrites": [{
+            "source": "/(.*)",
+            "destination": "/index.html"
         },
         {
-            "src": "client/**",
-            "use": "@vercel/static"
-        }
-    ],
-    "routes": [{
-            "src": "/api/(.*)",
-            "dest": "server/index.ts"
+            "source": "/api/(.*)",
+            "destination": "/api/$1"
         },
         {
-            "src": "/(.*)",
-            "dest": "server/index.ts"
+            "source": "/(.*)",
+            "destination": "/index.html"
         }
-    ],
-    "env": {
-        "NODE_ENV": "production"
-    }
+    ]
 }
